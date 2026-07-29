@@ -1,0 +1,7 @@
+v1	named	intermediary
+FIELD	com/example/mcbridge/mixin/ChatInputSuggestorMixin	Lnet/minecraft/client/gui/widget/TextFieldWidget;	textField	field_21599
+FIELD	com/example/mcbridge/mixin/ChatInputSuggestorMixin	Ljava/util/concurrent/CompletableFuture;	pendingSuggestions	field_21611
+FIELD	com/example/mcbridge/mixin/ChatScreenMixin	Lnet/minecraft/client/gui/widget/TextFieldWidget;	chatField	field_2382
+FIELD	com/example/mcbridge/mixin/ChatScreenMixin	Lnet/minecraft/client/gui/screen/ChatInputSuggestor;	chatInputSuggestor	field_21616
+METHOD	com/example/mcbridge/mixin/ChatInputSuggestorMixin	()V	clearWindow	method_44931
+METHOD	com/example/mcbridge/mixin/ChatInputSuggestorMixin	(Z)V	show	method_23920
