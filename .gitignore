@@ -1,0 +1,25 @@
+# Gradle
+.gradle/
+build/
+*.jar
+
+# MCP Server
+mcp-server/node_modules/
+mcp-server/dist/
+
+# Python
+__pycache__/
+*.pyc
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temp
+dependencies/
+temp/
