@@ -927,3 +927,10 @@ export const DetectManipulationSchema = z.object({
   player: z.string().optional().describe('Check if a specific player is manipulating you (default: auto-detect from recent chat)'),
   message: z.string().optional().describe('Check a specific message (default: check all recent messages to you)'),
 })
+
+export const IceBoatSchema = z.object({
+    action: z.enum(['start', 'stop', 'status']).describe('Action: start navigation, stop, or get status'),
+    x: z.number().optional().describe('Target X coordinate (required for start)'),
+    z: z.number().optional().describe('Target Z coordinate (required for start)'),
+    scan_radius: z.number().optional().describe('Scan radius for ice blocks (default: 8)'),
+})

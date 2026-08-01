@@ -1,3 +1,5 @@
+import * as s from './schemas.js'
+
 export const toolDefinitions = [
   {
     name: 'mc_connect',
@@ -1907,5 +1909,10 @@ export const toolDefinitions = [
         message: { type: 'string', description: 'Check a specific message (default: check all recent messages)' },
       },
     },
+  },
+  {
+    name: 'mc_ice_boat',
+    description: 'Autonomous ice boat navigation. Scans ice blocks (ice/packed_ice/blue_ice) to build a road graph, plans A* shortest path, then uses Stanley controller with rollout prediction to navigate. Start/stop/status. Usage: mc_ice_boat { action: "start", x: <number>, z: <number>, scan_radius?: <number> } or { action: "stop" } or { action: "status" }',
+    inputSchema: s.IceBoatSchema.shape,
   },
 ]

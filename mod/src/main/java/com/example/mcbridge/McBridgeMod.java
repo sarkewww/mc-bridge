@@ -40,6 +40,9 @@ public class McBridgeMod implements ClientModInitializer {
         });
 
         HighlightRenderer.register();
+        IceBoatHud.register();
+
+        ClientTickEvents.START_CLIENT_TICK.register(IceController::onClientTick);
 
         ClientReceiveMessageEvents.GAME.register((message, overlay) -> {
             ChatLog.add("[actionbar] " + message.getString());

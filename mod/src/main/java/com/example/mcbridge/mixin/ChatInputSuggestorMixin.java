@@ -40,6 +40,10 @@ public class ChatInputSuggestorMixin {
         {"!!whitelist off", "Disable command whitelist"},
         {"!!whitelist add <cmd>", "Add command to whitelist"},
         {"!!whitelist remove <cmd>", "Remove command from whitelist"},
+        {"!!iceboat", "冰船自动驾驶"},
+        {"!!iceboat start x=<X> z=<Z>", "冰船导航到目标坐标"},
+        {"!!iceboat stop", "停止冰船导航"},
+        {"!!iceboat status", "冰船导航状态"},
     };
 
     @Inject(method = "refresh", at = @At("HEAD"), cancellable = true)

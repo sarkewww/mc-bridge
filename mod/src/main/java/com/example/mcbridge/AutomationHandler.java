@@ -972,4 +972,21 @@ public class AutomationHandler {
         result.add("optimizedCommands", optimized);
         return result.toString();
     }
+
+    // --- Ice Boat Autopilot ---
+    static String handleIceBoatNavigate(JsonObject json) throws Exception {
+        if (!json.has("x") || !json.has("z")) throw new Exception("Missing x,z parameters");
+        double tx = json.get("x").getAsDouble();
+        double tz = json.get("z").getAsDouble();
+        int scanRadius = json.has("scan_radius") ? json.get("scan_radius").getAsInt() : 8;
+        return IceController.start(tx, tz, scanRadius);
+    }
+
+    static String handleIceBoatStop() {
+        return IceController.stop();
+    }
+
+    static String handleIceBoatStatus() {
+        return IceController.status();
+    }
 }

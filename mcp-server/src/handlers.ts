@@ -4173,6 +4173,29 @@ Output ONLY the JSON.`,
       return { content: [{ type: 'text', text: JSON.stringify({ error: `Unknown action: ${action}` }) }], isError: true }
     },
 
+    // --- Ice Boat Navigation ---
+    'mc_ice_boat': async (args: any) => {
+        const params = s.IceBoatSchema.parse(args ?? {})
+        if (params.action === 'stop') {
+            const result = await bridge.send('ice_boat_stop')
+            return { content: [{ type: 'text', text: result }] }
+        }
+        if (params.action === 'status') {
+            const result = await bridge.send('ice_boat_status')
+            return { content: [{ type: 'text', text: result }] }
+        }
+        if (params.action === 'start') {
+            if (params.x === undefined || params.z === undefined) {
+                return { content: [{ type: 'text', text: JSON.stringify({ error: 'Missing x or z parameter for start' }) }], isError: true }
+            }
+            const payload: any = { x: params.x, z: params.z }
+            if (params.scan_radius !== undefined) payload.scan_radius = params.scan_radius
+            const result = await bridge.send('ice_boat_navigate', payload)
+            return { content: [{ type: 'text', text: result }] }
+        }
+        return { content: [{ type: 'text', text: JSON.stringify({ error: 'Unknown action: ' + params.action }) }], isError: true }
+    },
+
     // --- Anti-manipulation Detection ---
     'mc_detect_manipulation': async (args: any) => {
       await requireBridge()

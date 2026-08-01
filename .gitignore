@@ -2,6 +2,7 @@
 .gradle/
 build/
 *.jar
+*.class
 
 # MCP Server
 mcp-server/node_modules/
@@ -10,6 +11,11 @@ mcp-server/dist/
 # Python
 __pycache__/
 *.pyc
+python/_dbg*.py
+python/_diag*.py
+python/_greedy_sim.py
+python/_t.json
+python/_test.json
 
 # IDE
 .idea/
@@ -20,6 +26,20 @@ __pycache__/
 .DS_Store
 Thumbs.db
 
+# Runtime / Secrets
+.env
+*.log
+logs/
+secrets/
+*.pem
+*.key
+
+# Local machine paths (not portable)
+mod/gradle.properties
+
 # Temp
 dependencies/
 temp/
+*.tmp
+
+AGENTS.md

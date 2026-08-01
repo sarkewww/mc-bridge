@@ -157,6 +157,9 @@ public class CommandHandler {
                 case "spawn_particle" -> WorldHandler.handleSpawnParticle(json, client);
                 case "play_sound" -> WorldHandler.handlePlaySound(json, client);
                 case "auto_tnt" -> EntityBlockHandler.handleAutoTnt(json, client, player);
+                case "ice_boat_navigate" -> AutomationHandler.handleIceBoatNavigate(json);
+                case "ice_boat_stop" -> AutomationHandler.handleIceBoatStop();
+                case "ice_boat_status" -> AutomationHandler.handleIceBoatStatus();
                 case "afk_standin" -> handleAfkStandin(json, client);
                 default -> throw new Exception("未知命令: " + type);
             };
