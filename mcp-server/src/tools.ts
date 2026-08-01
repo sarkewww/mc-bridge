@@ -1913,6 +1913,15 @@ export const toolDefinitions = [
   {
     name: 'mc_ice_boat',
     description: 'Autonomous ice boat navigation. Scans ice blocks (ice/packed_ice/blue_ice) to build a road graph, plans A* shortest path, then uses Stanley controller with rollout prediction to navigate. Start/stop/status. Usage: mc_ice_boat { action: "start", x: <number>, z: <number>, scan_radius?: <number> } or { action: "stop" } or { action: "status" }',
-    inputSchema: s.IceBoatSchema.shape,
+    inputSchema: {
+      type: 'object',
+      properties: {
+        action: { type: 'string', enum: ['start', 'stop', 'status'], description: 'Action: start navigation, stop, or get status' },
+        x: { type: 'number', description: 'Target X coordinate (required for start)' },
+        z: { type: 'number', description: 'Target Z coordinate (required for start)' },
+        scan_radius: { type: 'number', description: 'Scan radius for ice blocks (default: 8)' },
+      },
+      required: ['action'],
+    },
   },
 ]

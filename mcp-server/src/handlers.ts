@@ -4175,6 +4175,7 @@ Output ONLY the JSON.`,
 
     // --- Ice Boat Navigation ---
     'mc_ice_boat': async (args: any) => {
+        await requireBridge()
         const params = s.IceBoatSchema.parse(args ?? {})
         if (params.action === 'stop') {
             const result = await bridge.send('ice_boat_stop')
